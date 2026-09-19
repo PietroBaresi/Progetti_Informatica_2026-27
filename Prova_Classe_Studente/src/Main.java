@@ -10,6 +10,7 @@ public class Main {
         a.peso = 68.6;
         a.altezza = 1.70;
         a.classe = "1FI";
+        
         c.nome = "Fabio";
         c.cognome = "Bianchi";
         c.eta = 14;
