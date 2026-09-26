@@ -7,11 +7,14 @@ public class Main {
     public static void main(String[] args) {
         Studente s;
         double BMI = 0;
+
         s = new Studente("Pietro", "Baresi", 16, 1.78, 64.);
         System.out.printf("Lo studente " + s.cognome +" " + s.nome + " di "
                 + s.eta + " anni e alto " + s.altezza +
                 " m che pesa " + s.peso + " kg ");
+
         BMI = calcolaIndice(s);
+
         if(BMI < 18.5){
             System.out.println(" è sottopeso e il suo indice corporeo è " + BMI);
         }else if(BMI > 18.5 && BMI <=24.9){
