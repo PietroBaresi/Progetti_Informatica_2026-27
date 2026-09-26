@@ -29,5 +29,10 @@ public class Studente {
         this.altezza = 0.0;
         this.peso = 0.0;
     }
+    public double calcolaIndice(){
+        double BMI = 0;
+        BMI = peso / (altezza * altezza);
+        return BMI;
+    }
 
 }

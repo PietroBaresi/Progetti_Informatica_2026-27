@@ -14,7 +14,6 @@ public class Main {
                 " m che pesa " + s.peso + " kg ");
 
         BMI = calcolaIndice(s);
-
         if(BMI < 18.5){
             System.out.println(" è sottopeso e il suo indice corporeo è " + BMI);
         }else if(BMI > 18.5 && BMI <=24.9){
