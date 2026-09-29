@@ -25,17 +25,21 @@ public class Lampadina {
     }
 
     public String getNome() {
-         return nome;
+
+        return nome;
     }
     public void setNome(String nome) {
+
         this.nome = nome;
     }
 
     public void accendi(){
+
         this.accesa = true;
     }
 
     public void spegni(){
+
         this.accesa = false;
     }
 
@@ -55,7 +59,7 @@ public class Lampadina {
 
     @Override
     public String toString(){
-        return "Nome: " + this.nome + ", Potenza: " + this.potenza + "watt, Stato: " + this.accesa
+        return "Nome: " + this.nome + ", Potenza: " + this.potenza + " watt, Stato: " + this.accesa
                             + ", Qta: " + this.illuminazione + "%, Colore: " + this.colore;
     }
 }
