@@ -19,9 +19,7 @@ public class Main {
         System.out.println("Lampadina copiata:");
         System.out.println(lampada2);
 
-        // Test potenza non valida
         Lampadina lampada3 = new Lampadina(150);
-
         System.out.println("Lampadina con potenza non valida:");
         System.out.println(lampada3);
     }
