@@ -14,8 +14,16 @@ public class ContoCorrente {
 
     //metodo preleva
     public double preleva(double soldi) {
-        if (saldo > 0 && (this.saldo - soldi) > 0) {
+        if (saldo > 0 && (this.saldo - soldi) >= 0) {
             this.saldo -= soldi;
+        }
+        return this.saldo;
+    }
+
+    //metodo deposita
+    public double deposita(double soldi){
+        if (soldi > 0){
+            this.saldo += soldi;
         }
         return this.saldo;
     }
@@ -29,14 +37,14 @@ public class ContoCorrente {
     }
 
     public String getNominativo() {
-        return this.nome + this.cognome;
+        return this.nome + " " + this.cognome;
     }
 
     @Override
     public String toString() {
         return "ContoCorrente{" +
-                "cognome='" + cognome + ' ' +
-                ", nome='" + nome + ' ' +
+                "nome='" + cognome + ' ' +
+                ", cognome='" + nome + ' ' +
                 ", codice='" + codice + ' ' +
                 ", saldo=" + saldo +
                 '}';
