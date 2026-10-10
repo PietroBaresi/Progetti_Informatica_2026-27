@@ -4,6 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         Frazione f = new Frazione();
+        Frazione nuova = new Frazione();
         System.out.println("Inserisci numeratore");
         int num = in.nextInt();
         f.setNumeratore(num);
@@ -15,10 +16,10 @@ public class Main {
         f.semplificaFrazione();
         System.out.println(f);
 
-        f.reciprocaFrazione();
-        System.out.println(f);
-        f.oppostaFrazione();
-        System.out.println(f);
+        nuova = f.reciprocaFrazione();
+        System.out.println(nuova);
+        nuova = f.oppostaFrazione();
+        System.out.println(nuova);
 
         Frazione f1 = new Frazione();
         System.out.println("Inserisci numeratore della frazione che vuoi sommare");
@@ -27,19 +28,19 @@ public class Main {
         System.out.println("Inserisci denominatore della frazione che vuoi sommare");
         int den1 = in.nextInt();
         f1.setDenominatore(den1);
-        f.sommaFrazione(f1);
-        System.out.println(f);
+        nuova = f.sommaFrazione(f1);
+        System.out.println(nuova);
 
-        f.sottraiFrazione(f1);
-        System.out.println(f);
+        nuova = f.sottraiFrazione(f1);
+        System.out.println(nuova);
 
-        f.moltiplicaFrazione(f1);
-        System.out.println(f);
+        nuova = f.moltiplicaFrazione(f1);
+        System.out.println(nuova);
 
-        f.dividiFrazione(f1);
-        System.out.println(f);
+        nuova = f.dividiFrazione(f1);
+        System.out.println(nuova);
 
-        f.elevaFrazione(2);
-        System.out.println(f);
+        nuova = f.elevaFrazione(2);
+        System.out.println(nuova);
     }
 }
