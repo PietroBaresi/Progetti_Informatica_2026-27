@@ -2,6 +2,7 @@ public class TazzaPerDadi {
     private int totDadi;
     Dado[] dadi;
     private int nDadi;
+    private boolean automatica;
 
     public TazzaPerDadi(int N){
         this.totDadi = N;
@@ -9,11 +10,12 @@ public class TazzaPerDadi {
     }
 
     public TazzaPerDadi(int N, int F){
-        this.totDadi = N;
-        this.dadi = new Dado[this.totDadi];
+        this.nDadi = N;
+        this.dadi = new Dado[this.nDadi];
         for (int i = 0; i < N; i++) {
             this.dadi[i] = new Dado(F);
         }
+        automatica = true;
     }
 
     public boolean add(int F){
@@ -42,6 +44,13 @@ public class TazzaPerDadi {
         return somma;
     }
 
+    public boolean isEmpty(){
+        if(this.nDadi > 0){
+            return false;
+        }
+        return true;
+    }
+
     public int getMinimo(){
         return this.nDadi;
     }
@@ -59,11 +68,15 @@ public class TazzaPerDadi {
     @Override
     public String toString(){
         String s;
-        s = "Dadi attualmente contenuti: " + this.nDadi + "\n";
-        s += "Lista dei dadi: \n";
-        for (int i = 0; i < this.nDadi; i++) {
-            s += "- dado da " + this.dadi[i].getFacce() + "\n";
+        if(!automatica) {
+            s = "Questa tazza può contenere al massimo " + this.totDadi + " dadi. \n";
+            s += "Dadi attualmente contenuti: " + this.nDadi + "\n";
+            s += "Lista dei dadi: \n";
+            for (int i = 0; i < this.nDadi; i++) {
+                s += "- dado da " + this.dadi[i].getFacce() + "\n";
+            }
+            return s;
         }
-        return s;
+        return "Questa tazza contiene esattamente " + this.totDadi + " dadi, tutti con " + this.dadi[0].getFacce();
     }
 }
