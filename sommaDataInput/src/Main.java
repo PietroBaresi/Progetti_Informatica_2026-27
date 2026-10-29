@@ -12,11 +12,11 @@ public class Main{
         mese = in.nextInt();
         anno = in.nextInt();
         LocalDate data = LocalDate.of(anno, mese, giorno);
-        System.out.println("Oggi è il " + data);
+        System.out.println("La tua data: " + data);
         LocalDate domani = data.plusDays(1);
         LocalDate meseProssimo = data.plusMonths(1);
         LocalDate annoProssimo = data.plusYears(1);
-        System.out.println("Domani sarà " + domani + " fra un mese la data sarà: "
+        System.out.println("Il giorno dopo sarà " + domani + " fra un mese la data sarà: "
                 + meseProssimo + " e fra un anno sarà: " + annoProssimo);
     }
 }
