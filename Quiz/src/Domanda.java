@@ -2,7 +2,7 @@ public class Domanda {
     private String testo;
     private int valore;
     private Risposta[] risposta;
-    private int rispostaData;
+    private int rispostaData = -1;
 
     public Domanda(String t, Risposta[] r){
         this.testo = t;
@@ -19,16 +19,15 @@ public class Domanda {
     }
 
     public boolean rispondi(int r){
-        if(this.risposta[r].isCorretta()){
+        if (r >= 1 && r <= 4) {
             this.rispostaData = r;
-            return true;
+            return this.risposta[r - 1].isCorretta();
         }
-        this.rispostaData = r;
         return false;
     }
 
     public void setValore(int valore) {
-        if(this.valore > 0){
+        if(valore > 0){
             this.valore = valore;
         }
     }
@@ -45,11 +44,11 @@ public class Domanda {
     }
 
     public int getPunteggio(){
-        if(rispondi(rispostaData)){
-            return valore;
-        }
-        else if(!completata()){
+        if (!completata()) {
             return -1;
+        }
+        if (risposta[rispostaData - 1].isCorretta()) {
+            return valore;
         }
         return 0;
     }
@@ -64,12 +63,15 @@ public class Domanda {
     }
 
     public String getRispostaData() {
-        return risposta[rispostaData].getTestoRisposta();
+        if (!completata()) {
+            return null;
+        }
+        return risposta[rispostaData - 1].getTestoRisposta();
     }
 
     @Override
     public String toString(){
-        String s =  testo + "\n";
+        String s = testo + "\n";
         for (int i = 0; i < risposta.length; i++) {
             s += risposta[i].getTestoRisposta() + "\n";
         }
