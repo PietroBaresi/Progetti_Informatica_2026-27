@@ -6,8 +6,8 @@ public class Quiz {
     private int numeroDomande = 0;
     private final int maxDomande = 100;
 
-    public Quiz(String s) {
-        titolo = s;
+    public Quiz(String t) {
+        titolo = t;
         this.domande = new Domanda[maxDomande];
     }
 
