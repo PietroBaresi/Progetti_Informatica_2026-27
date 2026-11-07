@@ -5,6 +5,8 @@ public class ContoCorrente {
     private double saldo;
     private Operazioni[] op;
     final int MAX_OPERAZIONI = 1000;
+    private int contatore = 0;
+    private boolean eseguita;
 
     //Costruttore
     public ContoCorrente(String cognome, String nome, String codice) {
@@ -13,6 +15,7 @@ public class ContoCorrente {
         this.codice = codice;
         this.saldo = 0.0;
         op = new Operazioni[MAX_OPERAZIONI];
+        eseguita = false;
     }
 //
 //    //metodo preleva
@@ -53,16 +56,18 @@ public class ContoCorrente {
 //                '}';
 //    }
     public void eseguiOperazioni(Operazioni o){
-        int contatore = 0;
         this.op[contatore] = o;
         if(o.isDeposito()){
             this.saldo += o.getImporto();
+            contatore ++;
+            eseguita = true;
         }else{
             if(this.saldo - o.getImporto() > 0){
                 this.saldo -= o.getImporto();
+                contatore ++;
+                eseguita = true;
             }
         }
-        contatore ++;
     }
 
     public double getSaldo() {
@@ -78,8 +83,36 @@ public class ContoCorrente {
     }
 
     public Operazioni getOperazione(int indice){
-        if (indice <) {
+        if (indice >= 0) {
             return op[indice];
         }
+        return null;
     }
+
+    public int getNumeroOperazioni(){
+        return contatore;
+    }
+
+    public Operazioni[] getPrelievi(){
+        Operazioni[] prelievo;
+        prelievo = new Operazioni[MAX_OPERAZIONI];
+        for (int i = 0; i < op.length; i++) {
+            if(op[i].isPrelievo()){
+                prelievo[i] = op[i];
+            }
+        }
+        return prelievo;
+    }
+
+    public Operazioni[] getDepositi(){
+        Operazioni[] deposito;
+        deposito = new Operazioni[MAX_OPERAZIONI];
+        for (int i = 0; i < op.length; i++) {
+            if(op[i].isDeposito()){
+                deposito[i] = op[i];
+            }
+        }
+        return deposito;
+    }
+
 }
