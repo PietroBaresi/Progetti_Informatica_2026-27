@@ -1,5 +1,6 @@
 import graphics.Color;
 import graphics.Ellipse;
+import graphics.Text;
 
 public class Lampadina {
     private double potenza;
@@ -49,6 +50,8 @@ public class Lampadina {
     public void setNome(String nome) {
 
         this.nome = nome;
+        Text t = new Text(lampada.getX(), lampada.getY() + 60, nome);
+        t.draw();
     }
 
     public void accendi(){

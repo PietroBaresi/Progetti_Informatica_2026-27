@@ -12,6 +12,8 @@ public class LampadaTest {
             }
             else if(scelta == 2){
                 l.spegni();
+            }else if (scelta == 3){
+                l.setNome("Cucina1");
             }
             scelta = in.nextInt();
         }
