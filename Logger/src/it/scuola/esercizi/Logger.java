@@ -105,17 +105,13 @@ public class Logger {
 
     @Override
     public String toString() {
-        if (this.isEmpty()) {
-            return "Numero totale di azioni: 0";
-        }
-
-        return "Numero totale di azioni: " + size() +
-                "\nLivello 1 : " + getByAttenzione(1).length + (getByAttenzione(1).length == 1 ? " azione" : " azioni") +
-                "\nLivello 2 : " + getByAttenzione(2).length + (getByAttenzione(2).length == 1 ? " azione" : " azioni") +
-                "\nLivello 3 : " + getByAttenzione(3).length + (getByAttenzione(3).length == 1 ? " azione" : " azioni") +
-                "\nLivello 4 : " + getByAttenzione(4).length + (getByAttenzione(4).length == 1 ? " azione" : " azioni") +
-                "\nLivello 5 : " + getByAttenzione(5).length + (getByAttenzione(5).length == 1 ? " azione" : " azioni") +
-                "\nLe azioni sono state memorizzate a partire dalle " + inizio +
-                "\nfino alle " + fine;
+        LocalDate i = LocalDate.from(this.get(0).getMomento());
+        LocalDateTime inizio = LocalDateTime.from(this.get(0).getMomento());
+        LocalDate dataFine = LocalDate.from(this.get(azioni.length - 1).getMomento());
+        LocalTime fine = LocalTime.from(this.get(azioni.length - 1).getMomento());
+        if (this.isEmpty())
+            return "numero totale di azioni: " + nAzioni;
+        return "numero totale di azioni: " + nAzioni + "\nLivello 1 : " + getByAttenzione(1).length + "\nLivello 2 : " + getByAttenzione(2).length + "\nLivello 3 : " + getByAttenzione(3).length + "\nLivello 4 : " + getByAttenzione(4).length + "\nLivello 5 : " + getByAttenzione(5).length + "\nLe azioni sono state memorizzate a partire dalle " +
+                inizio.getHour() + ":" + inizio.getMinute() + ":" + inizio.getSecond() + " del " + i + " UTC \nfino alle ore " + fine + " del " + dataFine + " UTC";
     }
 }
