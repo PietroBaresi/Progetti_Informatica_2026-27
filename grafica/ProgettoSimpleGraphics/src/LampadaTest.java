@@ -8,7 +8,7 @@ public class LampadaTest {
         Lampadina l = new Lampadina(100, 100, 100);
         System.out.println(l);
 
-        System.out.println("Scegli azione (1=Accendi, 2=Spegni, 3=Nome, 4=Colore, 5=Luminosita, 0=Esci):");
+        System.out.println("Scegli azione (1=Accendi, 2=Spegni, 3=Nome, 4=Aumenta Lum, 5=Diminuisci Lum, 0=Esci):");
         int scelta = Integer.parseInt(reader.readLine());
 
         while (scelta != 0) {
@@ -17,27 +17,22 @@ public class LampadaTest {
             } else if (scelta == 2) {
                 l.spegni();
             } else if (scelta == 3) {
-                l.setNome("Cucina1");
+                System.out.print("Inserisci il nuovo nome: ");
+                String nuovoNome = reader.readLine();
+                l.setNome(nuovoNome);
             } else if (scelta == 4) {
-                System.out.print("Inserisci colore: ");
-                String colore = reader.readLine();
-                l.setColore(colore);
+                l.aumentaLuminosita(20);
             } else if (scelta == 5) {
-                System.out.print("Premi 1 per aumentare bianco, 2 per diminuire: ");
-                int ill = Integer.parseInt(reader.readLine());
-                System.out.print("Inserisci quantita: ");
-                int quantita = Integer.parseInt(reader.readLine());
-
-                if (ill == 1) {
-                    l.aumentaLuminosita(quantita);
-                } else {
-                    l.diminuisciLuminosita(quantita);
-                }
+                l.diminuisciLuminosita(20);
+            } else {
+                System.out.println("Scelta non valida.");
             }
 
             System.out.println(l);
-            System.out.println("Scegli azione (1=Accendi, 2=Spegni, 3=Nome, 4=Colore, 5=Luminosita, 0=Esci):");
+            System.out.println("Scegli azione (1=Accendi, 2=Spegni, 3=Nome, 4=Aumenta Lum, 5=Diminuisci Lum, 0=Esci):");
             scelta = Integer.parseInt(reader.readLine());
         }
+
+        System.out.println("Programma terminato.");
     }
 }
